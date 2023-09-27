@@ -1,0 +1,50 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/connect_with_me
+    username:
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      mode: always
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 10MB
+
+
+application:
+  security:
+    jwt:
+      secret-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKrvmxwWTD/UzShdXwB7vT7lnuCS4qHtKDOt4zPqErCEF2YOqgbZZ6gfTPwCUtEyi2KbT+YUfw4vDygrYQM4q9UCAwEAAQ==
+      expiration: 86400000 # A day
+      refresh-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKrvmxwWTD/UzShdXwB7vT7lnuCS4qHtKDOt4zPqErCEF2YOqgbZZ6gfTPwCUtEyi2KbT+YUfw4vDygrYQM4q9UCAwEAAQ==
+      expiration-refresh: 604800000 # A Week
+
+  drees:
+    stacktrace: false
+
+  upload:
+    path: /Volumes/AndreeM1/PARKEE/PARKEE_TEST/PARKEE-BE/upload
+
+  socket:
+    port: 9005
+    host: localhost
+
